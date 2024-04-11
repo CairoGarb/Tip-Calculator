@@ -13,6 +13,7 @@ export function Calculator() {
     const [selectedTip, setSelectedTip] = useState('');
 
     const [tipPerson, setTipPerson] = useState(0);
+    const [totalPerson, setTotalPerson] = useState(0)
 
     const [isValidInput, setIsValidInput] = useState(false);
 
@@ -50,6 +51,10 @@ export function Calculator() {
             /* tip per person */
             const tipPerPerson = tipAmount / peopleNumber;
             setTipPerson(parseFloat(tipPerPerson.toFixed(2)));
+
+            /* Total per person */
+            const totalPerPerson = priceNumber / peopleNumber;
+            setTotalPerson(parseFloat(totalPerPerson.toFixed(2)));
         }
 
     }
@@ -88,6 +93,7 @@ export function Calculator() {
         setPeopleError('');
         setSelectedTip('');
         setTipPerson(0);
+        setTotalPerson(0);
 
         if (customInput) {
             setCustomInput('');
@@ -221,7 +227,7 @@ export function Calculator() {
                                 <p>Total</p>
                                 <span>/ person</span>
                             </div>
-                            <div className="resultTotal">{priceInput}</div>
+                            <div className="resultTotal">{totalPerson}</div>
                         </div>
                     </div>
 

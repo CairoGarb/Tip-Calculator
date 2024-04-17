@@ -211,7 +211,7 @@
 
     .resultPersonTip,
     .resultTotal {
-        font-size: 25px;
+        font-size: 38px;
         color: var(--cyan-strong);
     }
 
@@ -446,7 +446,7 @@
 
     .resultPersonTip,
     .resultTotal {
-        font-size: 25px;
+        font-size: 30px;
         color: var(--cyan-strong);
     }
 
@@ -462,8 +462,6 @@
         background-color: var(--cyan-gray-dark);
         color: var(--cyan-very-dark);
     }
-
-
 
     .submit {
         background-color: var(--cyan-strong);

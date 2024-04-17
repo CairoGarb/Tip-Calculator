@@ -218,7 +218,7 @@ export function Calculator() {
                                 <p>Tip Amount</p>
                                 <span>/ person</span>
                             </div>
-                            <div className="resultPersonTip">{tipPerson}</div>
+                            <div className="resultPersonTip">${tipPerson}</div>
 
                         </div>
 
@@ -227,7 +227,7 @@ export function Calculator() {
                                 <p>Total</p>
                                 <span>/ person</span>
                             </div>
-                            <div className="resultTotal">{totalPerson}</div>
+                            <div className="resultTotal">${totalPerson}</div>
                         </div>
                     </div>
 

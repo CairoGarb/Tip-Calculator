@@ -118,30 +118,30 @@
         gap: 16px;
     }
 
-    .tipAmount p {
-        color: var(--white);
-        width: 100%;
-        padding: 4px 8px;
-        border-radius: 5px;
-        font-size: 25px;
-    }
-
     .tipPercentage {
-        background-color: var(--cyan-very-dark);
         text-align: center;
         user-select: none;
-    }
-
-    .tipPercentage:hover {
-        cursor: pointer;
-        background-color: var(--cyan-strong);
-        transition: .2s;
-        color: var(--cyan-very-dark);
     }
 
     .tipSelector label {
         background: none;
         border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tipSelector label:not(:last-child) {
+        background-color: var(--cyan-very-dark);
+        font-size: 24px;
+        color: var(--white);
+    }
+
+    .tipSelector label:not(:last-child):hover {
+        cursor: pointer;
+        color: var(--cyan-very-dark);
+        background-color: var(--cyan-strong);
+        transition: .3s;
     }
 
     .tipSelector label input {
@@ -154,6 +154,20 @@
         padding: 4px;
         color: var(--cyan-very-dark);
         border-radius: 5px;
+    }
+
+    .tipPercentage input {
+        background-color: var(--cyan-very-dark);
+    }
+
+    .tipPercentage input[type="radio"] {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .tipPercentage span {
+        margin-left: 5px; /* Ajuste conforme necessário */
     }
 
     .tipSelector label input:hover {
@@ -350,30 +364,30 @@
         gap: 16px;
     }
 
-    .tipAmount p {
-        color: var(--white);
-        width: 100%;
-        padding: 4px 8px;
-        border-radius: 5px;
-        font-size: 25px;
-    }
-
     .tipPercentage {
-        background-color: var(--cyan-very-dark);
         text-align: center;
         user-select: none;
-    }
-
-    .tipPercentage:hover {
-        cursor: pointer;
-        background-color: var(--cyan-strong);
-        transition: .2s;
-        color: var(--cyan-very-dark);
     }
 
     .tipSelector label {
         background: none;
         border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tipSelector label:not(:last-child) {
+        background-color: var(--cyan-very-dark);
+        font-size: 24px;
+        color: var(--white);
+    }
+
+    .tipSelector label:not(:last-child):hover {
+        cursor: pointer;
+        color: var(--cyan-very-dark);
+        background-color: var(--cyan-strong);
+        transition: .3s;
     }
 
     .tipSelector label input {
@@ -386,6 +400,23 @@
         padding: 4px;
         color: var(--cyan-very-dark);
         border-radius: 5px;
+    }
+
+    .tipPercentage input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .tipPercentage span {
+        font-size: 24px;
     }
 
     .tipSelector label input:hover {

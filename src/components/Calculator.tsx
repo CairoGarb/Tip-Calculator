@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Calculator.css'
 
 export function Calculator() {
 
     // Use states
-    const [priceInput, setPriceInput] = useState('')
+    const [priceInput, setPriceInput] = useState('1')
     const [priceError, setPriceError] = useState('')
 
-    const [peopleInput, setPeopleInput] = useState('')
+    const [peopleInput, setPeopleInput] = useState('1')
     const [peopleError, setPeopleError] = useState('')
 
     const [selectedTip, setSelectedTip] = useState('');
@@ -63,7 +63,6 @@ export function Calculator() {
     const handleTipPercentage = (percentage: any) => {
         setSelectedTip(percentage);
         setCustomInput(percentage);
-        validateInputs();
     }
 
     // The error will only appear when the input is not on focus or is submitted
@@ -99,6 +98,10 @@ export function Calculator() {
             setCustomInput('');
         }
     }
+
+    useEffect(() => {
+        validateInputs();
+    }, [selectedTip]);
 
     return (
         <div className="calculatorContainer">
@@ -144,7 +147,7 @@ export function Calculator() {
                         <p>Select Tip %</p>
 
                         <div className="tipAmount">
-                            <p className="tipPercentage" onClick={() => {
+                            {/* <p className="tipPercentage" onClick={() => {
                                 handleTipPercentage('5%')
                             }}>5%</p>
                             <p className="tipPercentage" onClick={() => {
@@ -158,18 +161,67 @@ export function Calculator() {
                             }}>25%</p>
                             <p className="tipPercentage" onClick={() => {
                                 handleTipPercentage('50%')
-                            }}>50%</p>
+                            }}>50%</p> */}
+
+                            <label htmlFor='5%' className='tipPercentage'>
+                                <input type="radio" name="tipPercentage" id='5%'
+                                    onChange={() => {
+                                        handleTipPercentage('5%')
+                                    }}
+                                    checked={selectedTip === '5%'} />
+                                <span>5%</span>
+                            </label>
+
+                            <label htmlFor='10%' className='tipPercentage'>
+                                <input type="radio" name="tipPercentage" id='10%'
+                                    onChange={() => {
+                                        handleTipPercentage('10%')
+                                    }}
+                                    checked={selectedTip === '10%'} />
+                                <span>10%</span>
+                            </label>
+
+                            <label htmlFor='15%' className='tipPercentage'>
+                                <input type="radio" name="tipPercentage" id='15%'
+                                    onChange={() => {
+                                        handleTipPercentage('15%')
+                                    }}
+                                    checked={selectedTip === '15%'} />
+                                <span>15%</span>
+                            </label>
+
+                            <label htmlFor='25%' className='tipPercentage'>
+                                <input type="radio" name="tipPercentage" id='25%'
+                                    checked={selectedTip === '25%'}
+                                    onChange={() => {
+                                        handleTipPercentage('25%')
+                                    }}
+                                />
+                                <span>25%</span>
+
+                            </label>
+
+                            <label htmlFor='50%' className='tipPercentage'>
+                                <input type="radio" name="tipPercentage" id='50%'
+                                    onChange={() => {
+                                        handleTipPercentage('50%')
+                                    }}
+                                    checked={selectedTip === '50%'}
+                                />
+                                <span>50%</span>
+                            </label>
 
                             <label htmlFor="custom">
                                 <input id='custom' type="text" placeholder='Custom'
-                                    value={customInput}
                                     onChange={(e) => {
                                         setSelectedTip(e.target.value)
                                         setCustomInput(e.target.value)
                                     }}
+                                    value={customInput}
                                     onKeyUp={(e) => {
                                         if (e.key === 'Enter') {
-                                            handleTipPercentage(selectedTip)
+                                            handleTipPercentage(selectedTip);
+                                            validateInputs();
                                         }
                                     }} />
                             </label>
@@ -191,11 +243,10 @@ export function Calculator() {
                                     <img src='./icon-person.svg' alt='person icon' />
                                 </span>
                                 <input id='people' type="text" placeholder='0'
-                                    value={peopleInput}
                                     onChange={(e) => {
                                         setPeopleInput(e.target.value)
-                                        validateInputs();
                                     }}
+                                    value={peopleInput}
                                     onBlur={handlePeopleBlur}
                                     onKeyUp={(e) => {
                                         if (e.key === 'Enter') {
